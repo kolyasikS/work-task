@@ -1,0 +1,30 @@
+@import "src/shared/mixins.module";
+
+.category__options {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    right: -40px;
+    transform-origin: left;
+}
+
+.category__button {
+    @include flexCenter();
+    background: #cacaca;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.category__button_remove {
+    background: #df0101;
+}
+.category__button_apply {
+    background: #3bbb30;
+}
+.category__button_cancel {
+    background: #f1ce5b;
+
+}

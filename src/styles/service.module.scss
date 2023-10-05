@@ -1,0 +1,17 @@
+@import "src/shared/mixins.module";
+.service {
+    min-height: 2000px;
+    min-width: 5000px;
+    scroll-behavior: smooth;
+    @include flexCenter();
+    top: 0;
+    scale: 1;
+}
+
+.service__inner {
+    @include flexCenter();
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    translate: -200px;
+}

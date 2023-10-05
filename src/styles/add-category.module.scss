@@ -1,0 +1,22 @@
+@import "src/shared/mixins.module";
+
+.addCategory__wrapper {
+    @include flexCenter();
+    width: 100%;
+    //position: absolute;
+    //bottom: -60px;
+    left: 0;
+    position: relative;
+    bottom: -2px;
+}
+
+.addCategory__input {
+    width: 180px;
+    padding: 10px 10px;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #d1d1d1;
+}
+
+

@@ -1,0 +1,65 @@
+@import "src/shared/mixins.module";
+
+.header {
+    border-bottom: 1px solid #d1d1d1;
+    position: fixed;
+    height: 100px;
+    width: 100vw;
+    min-width: 100%;
+    background: #d6ddde;
+    top: 0;
+    z-index: 100;
+    @include flexCenter();
+    justify-content: space-between;
+    padding: 0 30px;
+
+    cursor: default;
+}
+
+.header__content {
+    width: 100%;
+}
+
+.header__block {
+    @include flexCenter();
+    gap: 5px;
+}
+
+.header__title {
+    font-size: 20px;
+}
+
+.header__services_amount {
+    @include flexCenter();
+    background: #f2be5a;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.header__listView_btn {
+    background: #7253c9;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    color: #fff;
+    padding: 0px 10px;
+    border-radius: 2px;
+    height: 35px;
+}
+
+.header__gray_block {
+    button {
+        cursor: pointer;
+    }
+    @include flexCenter();
+    border-radius: 2px;
+    background: #fff;
+    height: 35px;
+    font-size: 12px;
+    min-width: 35px;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: #8a8a8a;
+}
