@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/kolyasikS.github.io/work-task/static/css/main.d023edfd.css",
-    "main.js": "/kolyasikS.github.io/work-task/static/js/main.0083347a.js",
-    "index.html": "/kolyasikS.github.io/work-task/index.html",
-    "main.d023edfd.css.map": "/kolyasikS.github.io/work-task/static/css/main.d023edfd.css.map",
-    "main.0083347a.js.map": "/kolyasikS.github.io/work-task/static/js/main.0083347a.js.map"
+    "main.css": "/work-task/static/css/main.d023edfd.css",
+    "main.js": "/work-task/static/js/main.0083347a.js",
+    "index.html": "/work-task/index.html",
+    "main.d023edfd.css.map": "/work-task/static/css/main.d023edfd.css.map",
+    "main.0083347a.js.map": "/work-task/static/js/main.0083347a.js.map"
   },
   "entrypoints": [
     "static/css/main.d023edfd.css",
