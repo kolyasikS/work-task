@@ -1,9 +1,8 @@
-import React, {createContext, Fragment, useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "../../styles/category.module.scss";
 import linkingStyles from "../../styles/linking.module.scss";
 import AddCategory from "./AddCategory";
 import Category, {CategoryType, LinkCoordinate} from "./Category";
-import category from "./Category";
 type SubCategoriesListProps = {
     categoryDialog: boolean;
     setCategoryDialog: (bool: boolean) => void;
@@ -37,7 +36,6 @@ const SubCategoriesList = ({categoryDialog, setCategoryDialog, setSubCategories,
     }, [editingChildItems]);
 
     const remove = (id: string) => {
-        // setSubCategories(prev => []);
         removeCategory(id);
     }
     useEffect(() => {
@@ -50,25 +48,7 @@ const SubCategoriesList = ({categoryDialog, setCategoryDialog, setSubCategories,
                 : null
             }
             {nearestChildren.map((item, ind) =>
-                /*<Fragment
-                        key={item.id}
-                    >
-                        <AddCategory
-                            defaultText={item.text}
-                            isSingle={nearestChildren.length === 0}
-                            endAdding={() => setSubCategories(prev => {
-                                prev[ind].isEditing = false;
-                                setEditingChildItems(prev => prev - 1)
-                                return [...prev];
-                            })}
-                            isEditing={true}
-                            add={(text) => editSubCategory(text, )}
-                            editingItems={editingChildItems}
-                            addEditItem={() => setEditingChildItems(prev => prev + 1)}
-                            amountCategories={nearestChildren.length}
-                            position={ind === 0 ? 'first' : ind === nearestChildren.length - 1 ? 'last' : null }
-                            addLinkCoordinate={ind === 0 || ind === nearestChildren.length - 1 ? addLinkCoordinates : null}
-                        />*/<Category text={item.text}
+                <Category text={item.text}
                                 key={item.id}
                                       isEditing={item.isEditing}
                                 isSingle={nearestChildren.length === 1}

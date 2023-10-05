@@ -7,7 +7,6 @@ type HeaderProps = {
 const Header = ({scale, setScale}: HeaderProps) => {
     return (
         <header className={styles.header}>
-            {/*<div className={styles.header__content}></div>*/}
             <div className={styles.header__block}>
                 <h1 className={styles.header__title}>Services</h1>
                 <span className={styles.header__services_amount}>{0}</span>

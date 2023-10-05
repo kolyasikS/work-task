@@ -1,14 +1,11 @@
-import React, {useContext, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import styles from '../../styles/category.module.scss';
 import optionsStyles from '../../styles/options.module.scss';
 import linkingStyles from '../../styles/linking.module.scss';
 import addCategoryStyles from '../../styles/add-category.module.scss';
-import AddButton from "../../shared/buttons/AddButton";
-import AddCategory from "./AddCategory";
 
 import CategoryOptions from "./CategoryOptions";
 import SubCategoriesList from "./SubCategoriesList";
-import useForceUpdate from "../../hooks/useForceUpdate";
 type CategoryProps = {
     isRoot?: boolean;
     text: string;
@@ -85,7 +82,6 @@ const Category = (category: CategoryProps) => {
         }
     }
     const editSubCategory = (text: string, id: string) => {
-        console.log(text, id, subCategories);
         setSubCategories(prev => prev.map(item => {
             if (item.id === id) {
                item.text = text;
@@ -110,7 +106,6 @@ const Category = (category: CategoryProps) => {
             horizLinkRef.current?.style.setProperty('width', (linkCoordinates.last.left - linkCoordinates.first.left) + 'px')
             horizLinkRef.current?.style.setProperty('left', linkCoordinates.first.leftPadd + 'px');
         }
-        console.log(linkCoordinates);
     }, [linkCoordinates, category.isEditing]);
 
     useEffect(() => {
@@ -121,10 +116,6 @@ const Category = (category: CategoryProps) => {
         if (linkRef.current && (categoryRef.current || addCategoryRef.current) && category.addLinkCoordinate && category.position) {
             const width = addCategoryRef.current ? addCategoryRef.current.getBoundingClientRect().width : categoryRef.current?.getBoundingClientRect().width;
             const rect = linkRef.current.getBoundingClientRect();
-            if (category.text === '1' || category.text === '123') {
-                console.log('3', category.text, (width ?? 0) / 2 + CATEGORIES_MARGIN * (category.getChildAmount(category.id) + (categoryDialog ? 1 : 0)));
-                console.log(width)
-            }
             switch (category.position) {
                 case 'first':
                     category.addLinkCoordinate({
@@ -147,13 +138,7 @@ const Category = (category: CategoryProps) => {
             }
         }
     }
-    if (category.text === '1' || category.text === '123') {
-        console.log(category.isEditing)
-    }
     useEffect(() => {
-        if (category.text === '1' || category.text === '123') {
-            console.log('2', category.isEditing)
-        }
         resetLinkCoordinates();
     }, [
         category.headCategory,
@@ -165,15 +150,6 @@ const Category = (category: CategoryProps) => {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    /*const endEditing = () => {
-        setSubCategories(prev => prev.map(item => {
-            if (item.id === category.id) {
-                item.isEditing = false;
-                setEditingChildItems(prev => prev - 1)
-            }
-            return item;
-        }));
-    }*/
     const cancelCategory = () => {
         if (category.endEditing) {
             category.endEditing('', false);
@@ -244,9 +220,6 @@ const Category = (category: CategoryProps) => {
                     >
                         <svg fill="#fff" viewBox="-1 1 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="10"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>cancel2</title> <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path> </g>
                         </svg>
-                        {/*<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M12 4V20" stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>*/}
                     </button>
                     <button
                         className={`${optionsStyles.category__button} ${optionsStyles.category__button_apply}`}

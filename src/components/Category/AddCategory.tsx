@@ -35,7 +35,6 @@ const AddCategory = ({endAdding, add, isSingle,
     }
     useEffect(() => {
         addEditItem();
-        console.log('\n----------------------------------------------\n\n');
         resetLinkCoordinates();
     }, []);
     const resetLinkCoordinates = () => {
@@ -84,9 +83,6 @@ const AddCategory = ({endAdding, add, isSingle,
                 >
                     <svg fill="#fff" viewBox="-1 1 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="10"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>cancel2</title> <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path> </g>
                     </svg>
-                    {/*<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M12 4V20" stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>*/}
                 </button>
                 <button
                     className={`${optionsStyles.category__button} ${optionsStyles.category__button_apply}`}

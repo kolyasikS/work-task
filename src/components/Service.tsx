@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import HeadCategory from "./Category/HeadCategory";
 import styles from '../styles/service.module.scss';
-import Header from "./Header";
 type ServiceProps = {
     scale: number
 }
@@ -20,36 +19,26 @@ const Service = ({scale}: ServiceProps) => {
     };
 
     const mouseUpHandler = () => {
-        // Return to cursor: grab after the user is no longer pressing
         if (serviceRef.current) {
             serviceRef.current.style.cursor = 'grab';
         }
 
-        // Remove the event listeners since it is not necessary to track the mouse position anymore
         document.removeEventListener('mousemove', mouseMoveHandler);
         document.removeEventListener('mouseup', mouseUpHandler);
     };
 
     const onMouseDown = (event: { clientX: number; clientY: number }) => {
         if (serviceRef.current) {
-            // Save the position at the moment the user presses down
             initialPositionRef.current = {
                 scrollLeft: window.scrollX,
                 scrollTop: window.scrollY,
                 mouseX: event.clientX,
                 mouseY: event.clientY,
             };
-         /*   console.log({
-                scrollLeft: window.scrollX,
-                scrollTop: window.scrollY,
-                mouseX: event.clientX,
-                mouseY: event.clientY,
-            });*/
-            // Show a cursor: grabbing style and set user-select: none to avoid highlighting text while dragging
+
             serviceRef.current.style.cursor = 'grabbing';
             serviceRef.current.style.userSelect = 'none';
 
-            // Add the event listeners that will track the mouse position for the rest of the interaction
             document.addEventListener('mousemove', mouseMoveHandler);
             document.addEventListener('mouseup', mouseUpHandler);
         }

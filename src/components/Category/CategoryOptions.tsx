@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import optionsStyles from "../../styles/options.module.scss";
 import AddButton from "../../shared/buttons/AddButton";
-import {LinkCoordinate} from "./Category";
 
 type CategoryOptionsProps = {
     setCategoryDialog: (bool: boolean) => void;
@@ -12,8 +11,7 @@ type CategoryOptionsProps = {
 }
 const CategoryOptions = ({setCategoryDialog, editCategory,
                              isRoot,
-                             setEditingChildItems, removeCategory}: CategoryOptionsProps) => {
-    const [renderAfterEditing, setRenderAfterEditing] = useState<number>(0);
+                             removeCategory}: CategoryOptionsProps) => {
     return (
         <div className={optionsStyles.category__options} style={{right: isRoot ? -35 : -95}}>
             <AddButton addSubCategory={() => {
